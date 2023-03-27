@@ -16,6 +16,10 @@
 		7A1C79F629CB2FF000862924 /* FeedAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1C79F529CB2FF000862924 /* FeedAppTests.swift */; };
 		7A1C7A0029CB2FF000862924 /* FeedAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1C79FF29CB2FF000862924 /* FeedAppUITests.swift */; };
 		7A1C7A0229CB2FF000862924 /* FeedAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1C7A0129CB2FF000862924 /* FeedAppUITestsLaunchTests.swift */; };
+		7ACD6DAC29D18A5F00139F62 /* Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACD6DAA29D18A5F00139F62 /* Feed.framework */; };
+		7ACD6DAD29D18A5F00139F62 /* Feed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACD6DAA29D18A5F00139F62 /* Feed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7ACD6DAE29D18A5F00139F62 /* FeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACD6DAB29D18A5F00139F62 /* FeediOS.framework */; };
+		7ACD6DAF29D18A5F00139F62 /* FeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACD6DAB29D18A5F00139F62 /* FeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7ACD6DB029D18A5F00139F62 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7ACD6DAF29D18A5F00139F62 /* FeediOS.framework in Embed Frameworks */,
+				7ACD6DAD29D18A5F00139F62 /* Feed.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7A1C79DB29CB2FEE00862924 /* FeedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1C79DE29CB2FEE00862924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +68,8 @@
 		7A1C79FB29CB2FF000862924 /* FeedAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1C79FF29CB2FF000862924 /* FeedAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAppUITests.swift; sourceTree = "<group>"; };
 		7A1C7A0129CB2FF000862924 /* FeedAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7ACD6DAA29D18A5F00139F62 /* Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ACD6DAB29D18A5F00139F62 /* FeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACD6DAE29D18A5F00139F62 /* FeediOS.framework in Frameworks */,
+				7ACD6DAC29D18A5F00139F62 /* Feed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +106,7 @@
 				7A1C79F429CB2FF000862924 /* FeedAppTests */,
 				7A1C79FE29CB2FF000862924 /* FeedAppUITests */,
 				7A1C79DC29CB2FEE00862924 /* Products */,
+				7ACD6DA929D18A5F00139F62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +151,15 @@
 			path = FeedAppUITests;
 			sourceTree = "<group>";
 		};
+		7ACD6DA929D18A5F00139F62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ACD6DAA29D18A5F00139F62 /* Feed.framework */,
+				7ACD6DAB29D18A5F00139F62 /* FeediOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +170,7 @@
 				7A1C79D729CB2FEE00862924 /* Sources */,
 				7A1C79D829CB2FEE00862924 /* Frameworks */,
 				7A1C79D929CB2FEE00862924 /* Resources */,
+				7ACD6DB029D18A5F00139F62 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
