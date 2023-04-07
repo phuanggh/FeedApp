@@ -29,6 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .defaultDirectoryURL()
             .appendingPathComponent("feed-store.sqlite")
 
+        // Launch Arguments: CommandLine is another way to get launch arguments
+        if CommandLine.arguments.contains("-reset") {
+            try? FileManager.default.removeItem(at: localStoreURL)
+        }
+        
         let localStore = try! CoreDataFeedStore(storeURL: localStoreURL)
         let localFeedLoader = LocalFeedLoader(store: localStore, currentDate: Date.init)
         let localImageLoader = LocalFeedImageDataLoader(store: localStore)
@@ -45,6 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func makeRemoteClient() -> HTTPClient {
+        // Launch Arguments: if you care about the value of launch arguments, use UserDefaults to convert the value to string, bool etc.
         switch UserDefaults.standard.string(forKey: "connectivity") {
         case "offline":
             return AlwaysFailingHTTPClient()
