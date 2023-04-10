@@ -9,6 +9,7 @@ import XCTest
 import Feed
 import FeediOS
 
+// UI test only tests high-level details, not checking the values in the cell
 final class FeedAppUIAcceptanceTests: XCTestCase {
 
 //    func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
