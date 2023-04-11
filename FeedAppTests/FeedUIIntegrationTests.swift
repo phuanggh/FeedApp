@@ -356,36 +356,6 @@ final class FeedUIIntegrationTests: XCTestCase {
     }
 }
 
-private extension FeedImageCell {
-    func simulateRetryAction() {
-        feedImageRetryButton.simulateTap()
-    }
-    
-    var isShowingLocation: Bool {
-        !locationContainer.isHidden
-    }
-    
-    var isShowingImageLoadingIndicator: Bool {
-        feedImageContainer.isShimmering
-    }
-    
-    var isShowingRetryAction: Bool {
-        !feedImageRetryButton.isHidden
-    }
-    
-    var locationText: String? {
-        locationLabel.text
-    }
-    
-    var descriptionText: String? {
-        descriptionLabel.text
-    }
-    
-    var renderedImage: Data? {
-        feedImageView.image?.pngData()
-    }
-}
-
 extension FeedViewController {
     // 測試不該跟implementation details綁在一起
     // refreshControl is an implementation details and better to hide from the tests
@@ -431,6 +401,10 @@ extension FeedViewController {
         refreshControl?.isRefreshing == true
     }
 
+    func renderedFeedImageData(at index: Int) -> Data? {
+        return simulateFeedImageViewVisible(at: index)?.renderedImage
+    }
+    
     var errorMessage: String? {
         return errorView?.message
     }
@@ -469,29 +443,6 @@ extension UIRefreshControl {
             actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
                 (target as NSObject).perform(Selector($0))
             }
-        }
-    }
-}
-
-private extension UIImage {
-    static func make(withColor color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        // Original approach
-//        UIGraphicsBeginImageContext(rect.size)
-//        let context = UIGraphicsGetCurrentContext()
-//        context?.setFillColor(color.cgColor)
-//        context?.fill(rect)
-//        let img = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return img!
-        
-        // after iOS 16.1
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = 1
-
-        return UIGraphicsImageRenderer(size: rect.size, format: format).image { rendererContext in
-            color.setFill()
-            rendererContext.fill(rect)
         }
     }
 }
