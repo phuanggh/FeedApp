@@ -341,8 +341,7 @@ final class FeedUIIntegrationTests: XCTestCase {
         // tableView.reloadData does not force an immediate layout update.
         // didEndDisplayingCell will only be called in the next layout cycle
         // so, to force table view to layout:
-        sut.tableView.layoutIfNeeded()
-        RunLoop.main.run(until: Date())
+        sut.view.enforceLayoutCycle()
         
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
             return XCTFail("Expected \(feed.count) image, got \(sut.numberOfRenderedFeedImageViews()) instead", file: file, line: line)
