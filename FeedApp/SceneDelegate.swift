@@ -30,6 +30,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         LocalFeedLoader(store: store, currentDate: Date.init)
     }()
     
+    private let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+    private lazy var remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
+    
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
         self.init()
         self.httpClient = httpClient
@@ -60,8 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<[FeedImage], Error> {
-        let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
-        let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
+//        let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
         
         // if this function is fired, Future will be excuted immediately.
         // But we want to fire a request only when someone subscribes to it, not on creation of the publisher.
