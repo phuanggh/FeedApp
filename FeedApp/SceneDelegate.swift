@@ -87,3 +87,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             })
     }
 }
+
+extension RemoteFeedLoader: FeedLoader where Resource == [FeedImage] {}
